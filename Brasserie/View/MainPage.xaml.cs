@@ -1,4 +1,5 @@
-﻿using Brasserie.Model.Restaurant.People;
+﻿using Brasserie.Model.Restaurant.Design;
+using Brasserie.Model.Restaurant.People;
 
 namespace Brasserie.View
 {
@@ -50,6 +51,23 @@ namespace Brasserie.View
 
         }
 
+        private void buttonTestStatic_Clicked(object sender, EventArgs e)
+        {
+            string mail = " mon mail@gmail.com";
+            bool testMail = Person.CheckEmail(mail);
+            //lblDebug2.Text = $"résultat du test de validité du mail {mail} : {testMail.ToString()}";
+            //Person.TotalPersons = 10;
+            lblDebug2.Text = $"Nombre d'instances de classe Person : {Person.TotalPersons}";
+        }
+
+        private void buttonTestTable_Clicked(object sender, EventArgs e)
+        {
+            Table t1 = new Table(4, 1, false);
+            Table t2 = new Table(6,2, false);
+
+            lblDebug.Text = $"Nombre total de sièges : {Table.TotalSeats}";
+
+        }
     }
 
 }

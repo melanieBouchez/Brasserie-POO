@@ -63,6 +63,29 @@
                 Clicked="buttonTestEncapsulation_Clicked"
                 Style="{StaticResource TestButton}"
                 />
+
+            
+            <Label
+                x:Name="lblDebug2"
+                Text="debug Email" 
+             />
+            <Button
+                x:Name="buttonTestStatic"
+                Text="Test static"
+                Clicked="buttonTestStatic_Clicked"
+                Style="{StaticResource TestButton}"
+            />
+
+            <Label
+                x:Name="buttonTestTable2"
+                Text="Test création table" 
+             />
+            <Button
+                x:Name="buttonTestTable"
+                Text="Test création table"
+                Clicked="buttonTestTable_Clicked"
+                Style="{StaticResource TestButton}"
+            />  
         </VerticalStackLayout>
     </ScrollView>
 

@@ -1,5 +1,6 @@
-﻿using Android.Widget;
-using Java.Lang;
+﻿//using Android.Widget;
+//using Java.Lang;
+//using Android.Net;
 using Microsoft.Maui.Devices.Sensors;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,10 @@ namespace Brasserie.Model.Restaurant.People
         private string _email;
         private string _mobilePhoneNumber;
 
+        private static int _totalPersons;
 
-        public Person(int id, string lastName = "nom", string firstName = "prenom", bool gender = true, string email = "", string mobilePhoneNumber = "")
+
+        /*public Person(int id, string lastName = "nom", string firstName = "prenom", bool gender = true, string email = "", string mobilePhoneNumber = "")
         {
             _id = id;
             _lastName = lastName;
@@ -29,7 +32,8 @@ namespace Brasserie.Model.Restaurant.People
             _gender = gender;
             _email = email;
             _mobilePhoneNumber = mobilePhoneNumber;
-        }
+            
+        }*/
 
         public Person() { }
 
@@ -80,6 +84,12 @@ namespace Brasserie.Model.Restaurant.People
                 }
             }
         }
+        /// <summary>
+        /// Totalisateur d'instance de  classe Persons
+        /// </summary>
+        public static int TotalPersons
+        { get => _totalPersons; private set => _totalPersons = value; }
+
 
         public string MobilePhoneNumber
         {
@@ -190,5 +200,20 @@ namespace Brasserie.Model.Restaurant.People
             }
             return false;
         }
+
+        
+
+        public Person (int id, string lastName="nom", string firstName = "prenom", bool gender = true, string email = "", string mobilePhoneNumber = "")
+        {
+            Id = id;
+            LastName = lastName;
+            FirstName = firstName;
+            Gender = gender;
+            Email = email;
+            MobilePhoneNumber = mobilePhoneNumber;
+            TotalPersons++;
+        }
+
+       
     }
 }
