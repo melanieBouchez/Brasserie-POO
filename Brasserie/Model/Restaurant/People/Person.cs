@@ -24,20 +24,28 @@ namespace Brasserie.Model.Restaurant.People
         private static int _totalPersons;
 
 
-        /*public Person(int id, string lastName = "nom", string firstName = "prenom", bool gender = true, string email = "", string mobilePhoneNumber = "")
+        public Person(int id, string lastName = "nom", string firstName = "prenom", bool gender = true, string email = "", string mobilePhoneNumber = "")
         {
-            _id = id;
-            _lastName = lastName;
-            _firstName = firstName;
-            _gender = gender;
-            _email = email;
-            _mobilePhoneNumber = mobilePhoneNumber;
-            
-        }*/
+            Id = id;
+            LastName = lastName;
+            FirstName = firstName;
+            Gender = gender;
+            Email = email;
+            MobilePhoneNumber = mobilePhoneNumber;
+            TotalPersons++;
+        }
 
-        public Person() { }
+        public Person()
+        {
+            TotalPersons++;
+        }
 
-        public int Id { get => _id; set => _id = value; }
+
+        public int Id 
+        { 
+            get => _id; 
+            set => _id = value; 
+        }
 
         public string LastName
         {
@@ -206,7 +214,7 @@ namespace Brasserie.Model.Restaurant.People
 
         
 
-        public Person (int id, string lastName="nom", string firstName = "prenom", bool gender = true, string email = "", string mobilePhoneNumber = "")
+        /*public Person (int id, string lastName="nom", string firstName = "prenom", bool gender = true, string email = "", string mobilePhoneNumber = "")
         {
             Id = id;
             LastName = lastName;
@@ -215,7 +223,7 @@ namespace Brasserie.Model.Restaurant.People
             Email = email;
             MobilePhoneNumber = mobilePhoneNumber;
             TotalPersons++;
-        }
+        }*/
 
        
     }

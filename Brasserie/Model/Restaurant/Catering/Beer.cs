@@ -13,6 +13,8 @@ namespace Brasserie.Model.Restaurant.Catering
 
         public Beer(string name, string description, int id, double unitPrice, double vatRate, string pictureName, double volume, double percentage, bool isNa, bool isAbbeyBeer, bool isTrapistBeer) : base(name, description, id, unitPrice, vatRate, pictureName, volume, percentage, isNa)
         {
+            IsAbbeyBeer = isAbbeyBeer;
+            IsTrappistBeer = isTrapistBeer;
         }
 
         private bool IsAbbeyBeer
@@ -28,14 +30,6 @@ namespace Brasserie.Model.Restaurant.Catering
             set => _isTrappistBeer = value;
         }
 
-        private bool CheckIsAbbeyBeer()
-        {
-            return _isAbbeyBeer;
-        }
-
-        private bool CheckIsTrappistBeeer()
-        {
-            return _isTrappistBeer;
-        }
+        
     }
 }

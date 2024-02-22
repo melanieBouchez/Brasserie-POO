@@ -16,17 +16,16 @@ namespace Brasserie.Model.Restaurant.People
         private string _address;
         private double _salary;
         
-        public StaffMember(int id, string lastName, string firstName, bool gender, string email, string phone, string bankAccount, string address, double salary)
-            : base(id, lastName, firstName, gender, email, phone)
-        { 
+        public StaffMember(int id,string lastName,string firstName,bool gender,string email,string phone,string bankAccount,string address,double salary) : base(id, lastName, firstName, gender, email, phone)
+        {
             BankAccount = bankAccount;
             Address = address;  
             Salary = salary;
 
         }
 
-
         public StaffMember() : base() { }
+
 
         /// <summary>
         /// Belgian Bank Account (the owner requires his employees to have a bank account in Belgium)
