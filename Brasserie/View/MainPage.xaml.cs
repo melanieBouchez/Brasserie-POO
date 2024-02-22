@@ -85,6 +85,11 @@ namespace Brasserie.View
         {
             Item i = new Item("Fanta", "Boisson gazeuse aux extraits d'orange", 1, 2.5, 6.0, "fanta25.png");
         }
+
+        private void buttonTestDerivateItems_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

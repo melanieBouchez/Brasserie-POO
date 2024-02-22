@@ -88,7 +88,10 @@ namespace Brasserie.Model.Restaurant.People
         /// Totalisateur d'instance de  classe Persons
         /// </summary>
         public static int TotalPersons
-        { get => _totalPersons; private set => _totalPersons = value; }
+        { 
+            get => _totalPersons; 
+            private set => _totalPersons = value; 
+        }
 
 
         public string MobilePhoneNumber
