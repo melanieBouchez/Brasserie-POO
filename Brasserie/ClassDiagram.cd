@@ -48,11 +48,11 @@
   <Class Name="Brasserie.Model.Restaurant.Catering.Alcohol" Collapsed="true">
     <Position X="12" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAoAIBAAAAAAAAAAACAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>gAAAAAoAIBAAAAAAAAAAACAAAAgAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Model\Restaurant\Catering\Alcohol.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Brasserie.Model.Restaurant.Catering.Drink" Collapsed="true">
+  <Class Name="Brasserie.Model.Restaurant.Catering.Drink">
     <Position X="10.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIAAACAgAA=</HashCode>
@@ -83,7 +83,7 @@
   <Class Name="Brasserie.Model.Restaurant.Catering.Beer" Collapsed="true">
     <Position X="10.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAAAAACAAAACIAAAAAAAAAAACAAQ=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAACAAAAAIAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Model\Restaurant\Catering\Beer.cs</FileName>
     </TypeIdentifier>
   </Class>

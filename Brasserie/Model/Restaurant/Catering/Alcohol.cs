@@ -14,7 +14,7 @@ namespace Brasserie.Model.Restaurant.Catering
         private double _percentage;
         private bool _isNa;
 
-        public Alcohol(string name, string description, int id, double unitPrice, double vatRate, string pictureName, double volume, double percentage, bool isNa) : base(name, description, id, unitPrice, vatRate, pictureName, volume)
+        public Alcohol(string name, string description, int id, double unitPrice, double vatRate, string pictureName, double volume, double percentage) : base(name, description, id, unitPrice, vatRate, pictureName, volume)
         {
             Percentage = percentage;
             EvalNa();

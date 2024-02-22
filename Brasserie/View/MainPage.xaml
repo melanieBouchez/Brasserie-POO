@@ -104,6 +104,12 @@
                 Clicked="buttonTestDerivateItems_Clicked"
                 Style="{StaticResource TestButton}"
                 />
+            <Button
+                x:Name="buttonTestCollection"
+                Text="Test Collection"
+                Clicked="buttonTestCollection_Clicked"
+                Style="{StaticResource TestButton}"
+               />
         </VerticalStackLayout>
     </ScrollView>
 

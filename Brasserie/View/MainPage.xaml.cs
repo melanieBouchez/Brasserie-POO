@@ -2,6 +2,7 @@
 using Brasserie.Model.Restaurant.People;
 using static Brasserie.Model.Restaurant.People.Customer;
 using Brasserie.Model.Restaurant.Catering;
+using System.Collections.ObjectModel;
 
 namespace Brasserie.View
 {
@@ -88,6 +89,30 @@ namespace Brasserie.View
 
         private void buttonTestDerivateItems_Clicked(object sender, EventArgs e)
         {
+            Drink d = new Drink("Coca", "Boisson gazeuse", 2, 2.6, 6.0, "", 25.0);
+            Beer b = new Beer("Chimay", "Bière Trappiste", 3, 4.5, 6.0, "", 33.0, 6.0, false, true);
+            Alcohol a = new Alcohol("Limoncello", "C'est trop bon", 5,6.0,6.0,"limoncello.jpeg",5.0,45.6);
+        }
+
+        private void buttonTestCollection_Clicked(object sender, EventArgs e)
+        {
+            StaffMember staffm1 = new StaffMember(10, "Vandenberg", "Caroline", true, "carovan@gmail.com", "0476893029", "BE81 7345 1290 1038", "10, rue de l'eglise 7030 Ghlin", 3050.0);
+            StaffMember staffm2 = new StaffMember(11, "Dries", "Francois", true,"francoisdries@gmail.com","0485113289", "BE83 2378 9876 2390", "130, rue de binche 7030 Ghlin", 3275.0);
+            Manager m = new Manager(12, "Legars", "Flavien", true, "legafla@gmail.com","0482426671", "BE83 4435 1893 1450", "5, rue de la cle 7000 Mons", 5500.0, "Password01");
+
+            ObservableCollection<StaffMember> staffmCol = new ObservableCollection<StaffMember>();
+            staffmCol.Add(staffm1);
+            staffmCol.Add(staffm2);
+            staffmCol.Add(m);
+            string s = $"\nnombre d'éléments dans la collection : {staffmCol.Count}";
+
+            foreach (StaffMember sm in staffmCol)
+            {
+                s += $"\n{sm.FirstName} {sm.LastName} : {sm.GetType().ToString()}";
+                
+            }
+            lblDebug.Text = s;
+            staffmCol.IndexOf(staffm1);
 
         }
     }
