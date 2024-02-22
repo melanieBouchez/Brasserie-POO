@@ -1,5 +1,6 @@
 ﻿using Brasserie.Model.Restaurant.Design;
 using Brasserie.Model.Restaurant.People;
+using static Brasserie.Model.Restaurant.People.Customer;
 
 namespace Brasserie.View
 {
@@ -66,6 +67,16 @@ namespace Brasserie.View
             Table t2 = new Table(6,2, false);
 
             lblDebug.Text = $"Nombre total de sièges : {Table.TotalSeats}";
+
+        }
+
+        private void buttonTestInherance_Clicked(object sender, EventArgs e)
+        {
+            Customer c = new Customer(7, "Maggi", "Francesca", false, "francesca190@gmail.com", "0475689034", CustomerType.New);
+            StaffMember staffm = new StaffMember(8, "Dries", "François", true, "francoisdries@gmail.com", "0485113289", "BE83 2378 9876 2390", "4,rue du marais 7030 Ghlin", 3275.0);
+            Manager m = new Manager(9, "Duchief", "Marc", true, "duchiefmarc@gmail.com", "0491203040", "BE84 1128 9836 3518", "2, rue du pont 7000 Mons", 5200.5, "Password01");
+
+            
 
         }
     }

@@ -11,7 +11,6 @@ namespace Brasserie.Model.Restaurant.Design
         const int MIN_SEATS = 2;
 
         const int MIN_ID = 1;
-        const int primaryKey = 30;
 
         private int _seatsNumber;
         private int _idNumber;

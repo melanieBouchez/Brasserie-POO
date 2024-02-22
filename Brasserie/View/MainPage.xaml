@@ -85,7 +85,13 @@
                 Text="Test création table"
                 Clicked="buttonTestTable_Clicked"
                 Style="{StaticResource TestButton}"
-            />  
+            />
+            <Button
+                x:Name="buttonTestInherance"
+                Text="Test Héritage"
+                Clicked="buttonTestInherance_Clicked"
+                Style="{StaticResource TestButton}"
+            />
         </VerticalStackLayout>
     </ScrollView>
 
