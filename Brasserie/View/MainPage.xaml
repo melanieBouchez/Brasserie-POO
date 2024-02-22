@@ -92,6 +92,12 @@
                 Clicked="buttonTestInherance_Clicked"
                 Style="{StaticResource TestButton}"
             />
+            <Button
+                x:Name="buttonTestItem"
+                Text="Test Item"
+                Clicked="buttonTestItem_Clicked"
+                Style="{StaticResource TestButton}"
+             />
         </VerticalStackLayout>
     </ScrollView>
 

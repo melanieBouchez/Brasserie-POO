@@ -1,6 +1,7 @@
 ﻿using Brasserie.Model.Restaurant.Design;
 using Brasserie.Model.Restaurant.People;
 using static Brasserie.Model.Restaurant.People.Customer;
+using Brasserie.Model.Restaurant.Catering;
 
 namespace Brasserie.View
 {
@@ -78,6 +79,11 @@ namespace Brasserie.View
 
             
 
+        }
+
+        private void buttonTestItem_Clicked(object sender, EventArgs e)
+        {
+            Item i = new Item("Fanta", "Boisson gazeuse aux extraits d'orange", 1, 2.5, 6.0, "fanta25.png");
         }
     }
 

@@ -28,5 +28,12 @@
       <FileName>Model\Restaurant\People\StaffMember.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Brasserie.Model.Restaurant.Catering.Item" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQCLAgAABAgABAEAABAAAQABCAAAIAEAAAAIAAAAAA=</HashCode>
+      <FileName>Model\Restaurant\Catering\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
