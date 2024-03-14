@@ -3,6 +3,7 @@ using Brasserie.Model.Restaurant.People;
 using static Brasserie.Model.Restaurant.People.Customer;
 using Brasserie.Model.Restaurant.Catering;
 using System.Collections.ObjectModel;
+using Brasserie.Model.Restaurant.Activity;
 
 namespace Brasserie.View
 {
@@ -114,6 +115,32 @@ namespace Brasserie.View
             lblDebug.Text = s;
             staffmCol.IndexOf(staffm1);
 
+        }
+
+        private void buttonTestOrder_Clicked(object sender, EventArgs e)
+        {
+            Order ord = new Order();
+
+            Soft coca = new Soft(name: "Coca cola", "",1, 3.30,  21.0, "coca.jpg", 25);
+            Beer brassTemps = new Beer(name: "Coca cola", "", 2, 3.30,  21.0, "biere.jpg", 25, 6.0, false, false);
+            Dish spaghBolo = new Dish("Spaghetti bolo", "", 3, 15.30, 21.0, "bolo.jpg");            OrderItem ordItemCoca_1 = new OrderItem(coca, 1);
+            OrderItem ordItemBrassTemps = new OrderItem(brassTemps, 1);
+            OrderItem ordItemSpaghBolo = new OrderItem(spaghBolo, 2);
+            OrderItem ordItemCoca_2 = new OrderItem(coca, 2);            ord.AddUpdateOrderItem(ordItemCoca_1);
+            ord.AddUpdateOrderItem(ordItemBrassTemps);
+            ord.AddUpdateOrderItem(ordItemSpaghBolo);
+            ord.AddUpdateOrderItem(ordItemCoca_2); //2 nouveaux cocas commandés plus tard
+            
+            string s = "";
+            
+            s = $"nombre d'orderItems : {ord.OrderItems.Count}";
+
+            s += $"\nnombre de coca : {ord.OrderItems[0].Quantity} Prix : { ord.OrderItems[0].Price}";
+            s += $"\nnombre de brasse temps : {ord.OrderItems[1].Quantity} Prix : { ord.OrderItems[1].Price} ";
+            s += $"\nnombre de spaghettis : {ord.OrderItems[2].Quantity} Prix : { ord.OrderItems[2].Price} ";
+            s += $"\nPrix total TVA : {ord.TotalVatCost}€";
+            s += $"\nPrix total : {ord.TotalPrice}€";
+                        lblDebug.Text = s;
         }
     }
 

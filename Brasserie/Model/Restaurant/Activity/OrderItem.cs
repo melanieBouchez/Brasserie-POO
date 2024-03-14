@@ -57,7 +57,7 @@ namespace Brasserie.Model.Restaurant.Activity
 
         private void OnPropertyChanged(string v)
         {
-            throw new NotImplementedException();
+           
         }
 
         /// <summary>
