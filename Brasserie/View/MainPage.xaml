@@ -34,7 +34,7 @@
                 x:Name="lblDebug"
                 Text="debug Text"/>
             <HorizontalStackLayout Spacing="10">
-                
+
                 <Button
                     x:Name="buttonTestCreateFirstPersons"
                     Text="Créer mes premières personnes"
@@ -51,7 +51,7 @@
                 <Label
                     x:Name="lblDebug2"
                     Text="debug Email"/>
-                
+
                 <Button
                     x:Name="buttonTestStatic"
                     Text="Test static"
@@ -88,7 +88,21 @@
                     Text="Test Order"
                     Clicked="buttonTestOrder_Clicked"
                     Style="{StaticResource TestButton}"/>
+                <Button
+                    x:Name="ButtonTestLambda"
+                    Text="Lambda"
+                    Clicked="ButtonTestLambda_Clicked"
+                    Style="{StaticResource TestButton}"/>
 
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Button
+                    x:Name="buttonExLambdaOnCollection"
+                    Text="Collection Lambda"
+                    Clicked="buttonExLambdaOnCollection_Clicked"
+                    Style="{StaticResource TestButton}"/>
+                    
             </HorizontalStackLayout>
 
             <Image

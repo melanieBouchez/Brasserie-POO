@@ -4,6 +4,7 @@ using static Brasserie.Model.Restaurant.People.Customer;
 using Brasserie.Model.Restaurant.Catering;
 using System.Collections.ObjectModel;
 using Brasserie.Model.Restaurant.Activity;
+using Microsoft.Maui;
 
 namespace Brasserie.View
 {
@@ -85,14 +86,14 @@ namespace Brasserie.View
 
         private void buttonTestItem_Clicked(object sender, EventArgs e)
         {
-            Item i = new Item("Fanta", "Boisson gazeuse aux extraits d'orange", 1, 2.5, 6.0, "fanta25.png");
+            Item i = new Item(1,"Fanta", "Boisson gazeuse aux extraits d'orange", 2.5, 6.0, "fanta25.png");
         }
 
         private void buttonTestDerivateItems_Clicked(object sender, EventArgs e)
         {
-            Drink d = new Drink("Coca", "Boisson gazeuse", 2, 2.6, 6.0, "", 25.0);
-            Beer b = new Beer("Chimay", "Bière Trappiste", 3, 4.5, 6.0, "", 33.0, 6.0, false, true);
-            Alcohol a = new Alcohol("Limoncello", "C'est trop bon", 5,6.0,6.0,"limoncello.jpeg",5.0,45.6);
+            Drink d = new Drink(2, "Coca", "Boisson gazeuse",  2.6, 6.0, "", 25.0);
+            Beer b = new Beer(3, "Chimay", "Bière Trappiste", 4.5,  "",6.0, 33.0, 6.0, false, true);
+            Alcohol a = new Alcohol(5, "Limoncello", "C'est trop bon", 6.0,6.0,"limoncello.jpeg",5.0,45.6);
         }
 
         private void buttonTestCollection_Clicked(object sender, EventArgs e)
@@ -121,9 +122,9 @@ namespace Brasserie.View
         {
             Order ord = new Order();
 
-            Soft coca = new Soft(name: "Coca cola", "",1, 3.30,  21.0, "coca.jpg", 25);
-            Beer brassTemps = new Beer(name: "Coca cola", "", 2, 3.30,  21.0, "biere.jpg", 25, 6.0, false, false);
-            Dish spaghBolo = new Dish("Spaghetti bolo", "", 3, 15.30, 21.0, "bolo.jpg");            OrderItem ordItemCoca_1 = new OrderItem(coca, 1);
+            Soft coca = new Soft(1, name: "Coca cola", "", 3.30, "coca.jpg", 21.0, 25);
+            Beer brassTemps = new Beer(2, name: "Coca cola", "", 3.30, "biere.jpg", 21.0,25, 6.0, false, false);
+            Dish spaghBolo = new Dish(3, "Spaghetti bolo", "", 15.30, "bolo.jpg", 21.0);            OrderItem ordItemCoca_1 = new OrderItem(coca, 1);
             OrderItem ordItemBrassTemps = new OrderItem(brassTemps, 1);
             OrderItem ordItemSpaghBolo = new OrderItem(spaghBolo, 2);
             OrderItem ordItemCoca_2 = new OrderItem(coca, 2);            ord.AddUpdateOrderItem(ordItemCoca_1);
@@ -141,6 +142,100 @@ namespace Brasserie.View
             s += $"\nPrix total TVA : {ord.TotalVatCost}€";
             s += $"\nPrix total : {ord.TotalPrice}€";
                         lblDebug.Text = s;
+        }
+
+        private void ButtonTestLambda_Clicked(object sender, EventArgs e)
+        {
+            ObservableCollection<Drink> drinks = new ObservableCollection<Drink>();            drinks.Add(new Soft(1, name: "Coca 25", "", 3.30, "coca.jpg", 21.0, 25));
+            drinks.Add(new Soft(2, name: "Fanta 25", "", 3.30, "fanta.jpg", 21.0, 25));
+            drinks.Add(new Soft(3, name: "Coca 33", "", 4.20, "coca.jpg", 21.0, 33));
+            drinks.Add(new Soft(4, name: "Fanta 33", "", 4.20, "fanta.jpg", 21.0, 33));
+            drinks.Add(new Soft(5, name: "Water 25cl", "", 3.10, "water25.jpg", 21.0, 25));
+            drinks.Add(new Soft(6, name: "Water 50cl", "", 5.50, "water.jpg", 21.0, 50));
+            drinks.Add(new Soft(7, name: "Water 1L", "", 7.00, "water.jpg", 21.0, 100));
+            drinks.Add(new Soft(8, name: "Coca Zero", "", 3.50, "coca.jpg", 21.0, 25));
+            drinks.Add(new Soft(9, name: "IceTea Zero", "", 3.50, "coca.jpg", 21.0, 25));
+            drinks.Add(new Beer(10, name: "Ambrasse Temps 25", "", 4.20, "amb25.jpg", 21.0,25, 6.00, false, false));
+            drinks.Add(new Beer(11, name: "Troll 25", "", 4.20, "troll25.jpg", 21.0, 25, 5.50,false, false));
+
+            // match Criteria ?;
+            bool boolResult;
+            boolResult = drinks.All(d => d.UnitPrice < 5.00);//all elements respect the criteria ?
+            boolResult = drinks.Any(d => d.UnitPrice >= 6.00);//exist at least one element that respect the criteria
+
+            //sorted collections
+            ObservableCollection<Drink> orderByNameDesc = new
+            ObservableCollection<Drink>(drinks.OrderByDescending(d => d.Name));
+            ObservableCollection<Drink> orderByUnitPriceAsc = new
+            ObservableCollection<Drink>(drinks.OrderBy(d => d.UnitPrice));
+
+            //collection with selection 
+            ObservableCollection<Drink> select25Cl = new
+            ObservableCollection<Drink>(drinks.Where(d => d.Volume == 25.00));
+            ObservableCollection<Drink> waters = new ObservableCollection<Drink>(drinks.Where(d
+            => d.Name.Contains("Water")));
+            ObservableCollection<Drink> beers = new
+            ObservableCollection<Drink>(drinks.OfType<Beer>());
+
+            //find element with one or more (logical expression) criteria
+            Drink coca33 = drinks.First(d => d.Name.Contains("Coca 33"));
+            //Drink d = drinks.First(d => d.Volume > 25 && d.PictureName.EndsWith(".jpg"));
+            //build new list from another collection
+            List<string> s = drinks.Select(d =>
+            $"{d.Id};{d.Name};{d.Description};{d.UnitPrice};{d.Volume}").ToList();
+            //compute 
+            double maxUnitPrice = drinks.Max(d => d.UnitPrice);
+            double average = drinks.Average(d => d.UnitPrice);
+            double sum = drinks.Sum(d => d.UnitPrice);
+            //do something foreach element
+            //drinks.ForEach(d => d.VatRate = 22.0);
+        }
+
+        private void buttonExLambdaOnCollection_Clicked(object sender, EventArgs e)
+        {
+            ObservableCollection<StaffMember> staff = new ObservableCollection<StaffMember>();
+            staff.Add(new StaffMember(1, "Dutrieu", "Pierre", true,
+            "dutrieur@gmail.com", "0498345678", "BE45 6781 2345 2490", "4, rue de la coupe 7000 Mons",34000));
+            staff.Add(new StaffMember(2, "Lalande", "Vanessa", false, "", "0485667098", "BE80 6581 1145 3496", "16, rue de la loi 7080 Nivelles", 32500));
+            staff.Add(new Manager(3, "Jenlain", "Fabienne", false, "jenfab23@gmail.com","0478901322", "BE80 4394 7739 1234", "13, rue de Mons 6000 Beaumont", 59000,"Password01"));
+            staff.Add(new StaffMember(4, "Baulieu", "Jean", true, "", "", "BE23 1189 1390 1193","5, rue des tilleus 7030 Ghlin", 36500));
+            staff.Add(new StaffMember(5, "Gerardin", "Isabelle", false, "", "0475671038", "BE80 1782 4490 9113", "120, rue des drapiers 7000 Mons", 41000));
+            staff.Add(new Manager(6, "Balkan", "Fred", true, "balkan@gmail.com", "0479001280","BE89 1190 1127 2280", "10, rue grande 6340 Nimy", 54000, "TrucMachin01"));
+            staff.Add(new StaffMember(7, "Gutierez", "Manolo", true, "manolo140@gmail.com","0498671011", "BE70 9012 1034 1931", "8, rue de la riviere 7000 Mons", 29800));
+            //a) Le nombre total d’employés dans la collection.
+            int EmplyeesNumber = staff.Count();
+
+            //b) Est - ce que tout le monde a bien un N° mobile renseigné ?
+            bool allHaveMobile = staff.All(s => !string.IsNullOrEmpty(s.MobilePhoneNumber));
+
+            //c) Est - ce qu’il y a un membre injoignable, qui n’a pas de N° de téléphone ni d’Email renseignés ?
+            bool isSomeoneUnjoinable = staff.Any(s => string.IsNullOrEmpty(s.MobilePhoneNumber) && string.IsNullOrEmpty(s.Email));
+
+            //d) Le premier membre(celui du c)) (sa référence) qui n’a pas de N° de téléphone ni d’Email renseignés
+            StaffMember firstUnJoingnable = staff.FirstOrDefault(s => string.IsNullOrEmpty(s.MobilePhoneNumber) && string.IsNullOrEmpty(s.Email));
+
+            //e) La collection des employés n’ayant pas d’email renseigné.
+            ObservableCollection<StaffMember> employeWithNoMail = new ObservableCollection<StaffMember>(staff.Where(s => string.IsNullOrEmpty(s.Email)));
+
+            //f) La collection des employées(de genre féminin).
+            ObservableCollection<StaffMember> womens = new ObservableCollection<StaffMember>(staff.Where(s => !s.Gender));
+
+            //g) La collection des employés résidant à Mons.
+            ObservableCollection<StaffMember> liveInMons = new ObservableCollection<StaffMember>(staff.Where(s => !string.IsNullOrEmpty(s.Address) && s.Address.Contains("7000")));
+                        
+            //h) La collection des managers.
+            ObservableCollection<StaffMember> onlyManagers = new ObservableCollection<StaffMember>(staff.OfType<Manager>());
+
+            //i) La collection des employés triés par ordre alphabétique de nom de famille.
+            ObservableCollection<StaffMember> orderByNameAsc = new ObservableCollection<StaffMember>(staff.OrderBy(s => s.LastName));
+
+            //j) Le pourcentage d’hommes dans le personnel(en une seule ligne de code).
+            double pourcentMen = (100 * staff.Count(s => s.Gender)) / staff.Count;
+
+            //k) Les employés par ordre croissant de salaire.
+            //Impossible d'accès depuis la MainPage car le salaire est protected
+
+
         }
     }
 

@@ -8,7 +8,7 @@ namespace Brasserie.Model.Restaurant.Catering
 {
     public class Aperitif : Alcohol
     {
-        public Aperitif(string name, string description, int id, double unitPrice, double vatRate, string pictureName, double volume, double percentage, bool isNa) : base(name, description, id, unitPrice, vatRate, pictureName, volume, percentage)
+        public Aperitif(int id, string name, string description, double unitPrice, double vatRate, string pictureName, double volume, double percentage, bool isNa) : base(id, name, description, unitPrice, vatRate, pictureName, volume, percentage)
         {
         }
     }

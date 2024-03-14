@@ -8,7 +8,7 @@ namespace Brasserie.Model.Restaurant.Catering
 {
     public class Soft : Drink
     {
-        public Soft(string name, string description, int id, double unitPrice, double vatRate, string pictureName, double volume) : base(name, description, id, unitPrice, vatRate, pictureName, volume)
+        public Soft(int id, string name, string description,  double unitPrice, string pictureName, double vatRate, double volume) : base(id, name, description,  unitPrice, vatRate, pictureName, volume)
         {
         }
     }

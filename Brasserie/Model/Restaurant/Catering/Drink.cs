@@ -12,7 +12,7 @@ namespace Brasserie.Model.Restaurant.Catering
 
         private double _volume;
 
-        public Drink(string name, string description, int id, double unitPrice, double vatRate, string pictureName, double volume) : base(name, description, id, unitPrice, vatRate, pictureName)
+        public Drink(int id, string name, string description,  double unitPrice, double vatRate, string pictureName, double volume) : base(id, name, description,  unitPrice, vatRate, pictureName)
         {
         }
 

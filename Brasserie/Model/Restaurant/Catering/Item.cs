@@ -25,7 +25,7 @@ namespace Brasserie.Model.Restaurant.Catering
 
         #region Constructeurs
 
-        public Item(string name, string description, int id, double unitPrice, double vatRate, string pictureName)
+        public Item(int id, string name, string description,  double unitPrice, double vatRate, string pictureName)
         {
             Name = name;
             Description = description;
