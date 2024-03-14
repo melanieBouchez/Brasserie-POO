@@ -188,7 +188,7 @@ namespace Brasserie.View
             double average = drinks.Average(d => d.UnitPrice);
             double sum = drinks.Sum(d => d.UnitPrice);
             //do something foreach element
-            //drinks.ForEach(d => d.VatRate = 22.0);
+            drinks.ToList().ForEach(d => d.VatRate = 22.0);
         }
 
         private void buttonExLambdaOnCollection_Clicked(object sender, EventArgs e)
@@ -235,6 +235,25 @@ namespace Brasserie.View
             //k) Les employés par ordre croissant de salaire.
             //Impossible d'accès depuis la MainPage car le salaire est protected
 
+
+        }
+
+        private void buttonTestItemsCollection_Clicked(object sender, EventArgs e)
+        {
+            Soft coca = new Soft(1, name: "Coca cola", "", 3.30, "coca.jpg", 21.0, 25);
+            Soft fanta = new Soft(2, name: "Fanta", "", 3.30, "fanta.jpg", 21.0, 25);
+            Beer brassTemps = new Beer(3, name: "Coca cola", "", 3.30, "biere.jpg", 21.0,25, 6.0, false, false);
+            Dish spaghBolo = new Dish(4, "Spaghetti bolo", "", 15.30, "bolo.jpg", 21.0);
+
+            Soft coca2 = new Soft(5, name: "Coca cola", "", 3.30, "coca.jpg", 21.0, 25);
+            ItemsCollection itCol = new ItemsCollection();
+            itCol.AddItem(coca);
+            itCol.AddItem(fanta);
+            itCol.AddItem(brassTemps);
+            itCol.AddItem(spaghBolo);
+            itCol.AddItem(coca2);//test to add an item who have the same name as another already in the list
+            itCol.DeleteItem(brassTemps);//delete one item
+            itCol.IndexPrices(5.00); //index 5% all prices 
 
         }
     }

@@ -33,6 +33,10 @@
             <Label
                 x:Name="lblDebug"
                 Text="debug Text"/>
+            <Label
+                x:Name="lblDebug2"
+                Text="debug Email"/>
+            
             <HorizontalStackLayout Spacing="10">
 
                 <Button
@@ -45,12 +49,7 @@
                     x:Name="buttonTestEncapsulation"
                     Text="Test encapsulation , accesseurs "
                     Clicked="buttonTestEncapsulation_Clicked"
-                    Style="{StaticResource TestButton}"/>
-
-
-                <Label
-                    x:Name="lblDebug2"
-                    Text="debug Email"/>
+                    Style="{StaticResource TestButton}"/>                
 
                 <Button
                     x:Name="buttonTestStatic"
@@ -63,31 +62,37 @@
                     Text="Test création table"
                     Clicked="buttonTestTable_Clicked"
                     Style="{StaticResource TestButton}"/>
+                
                 <Button
                     x:Name="buttonTestInherance"
                     Text="Test Héritage"
                     Clicked="buttonTestInherance_Clicked"
                     Style="{StaticResource TestButton}"/>
+                
                 <Button
                     x:Name="buttonTestItem"
                     Text="Test Item"
                     Clicked="buttonTestItem_Clicked"
                     Style="{StaticResource TestButton}"/>
+                
                 <Button
                     x:Name="buttonTestDerivateItems"
                     Text="Test Derivate Items"
                     Clicked="buttonTestDerivateItems_Clicked"
                     Style="{StaticResource TestButton}"/>
+                
                 <Button
                     x:Name="buttonTestCollection"
                     Text="Test Collection"
                     Clicked="buttonTestCollection_Clicked"
                     Style="{StaticResource TestButton}"/>
+                
                 <Button
                     x:Name="buttonTestOrder"
                     Text="Test Order"
                     Clicked="buttonTestOrder_Clicked"
                     Style="{StaticResource TestButton}"/>
+
                 <Button
                     x:Name="ButtonTestLambda"
                     Text="Lambda"
@@ -96,13 +101,21 @@
 
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout>
+            <HorizontalStackLayout
+                Spacing="10">
+                
                 <Button
                     x:Name="buttonExLambdaOnCollection"
                     Text="Collection Lambda"
                     Clicked="buttonExLambdaOnCollection_Clicked"
                     Style="{StaticResource TestButton}"/>
-                    
+
+                <Button
+                    x:Name="buttonTestItemsCollection"
+                    Text="Items Collection"
+                    Clicked="buttonTestItemsCollection_Clicked"
+                    Style="{StaticResource TestButton}"/>
+
             </HorizontalStackLayout>
 
             <Image
