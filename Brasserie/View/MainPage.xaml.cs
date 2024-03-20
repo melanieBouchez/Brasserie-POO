@@ -242,11 +242,12 @@ namespace Brasserie.View
         {
             Soft coca = new Soft(1, name: "Coca cola", "", 3.30, "coca.jpg", 21.0, 25);
             Soft fanta = new Soft(2, name: "Fanta", "", 3.30, "fanta.jpg", 21.0, 25);
-            Beer brassTemps = new Beer(3, name: "Coca cola", "", 3.30, "biere.jpg", 21.0,25, 6.0, false, false);
+            Beer brassTemps = new Beer(3, name: "Brasse Temps", "", 3.30, "biere.jpg", 21.0,25, 6.0, false, false);
             Dish spaghBolo = new Dish(4, "Spaghetti bolo", "", 15.30, "bolo.jpg", 21.0);
-
             Soft coca2 = new Soft(5, name: "Coca cola", "", 3.30, "coca.jpg", 21.0, 25);
+            
             ItemsCollection itCol = new ItemsCollection();
+            itCol.Equals(coca);
             itCol.AddItem(coca);
             itCol.AddItem(fanta);
             itCol.AddItem(brassTemps);
@@ -255,6 +256,28 @@ namespace Brasserie.View
             itCol.DeleteItem(brassTemps);//delete one item
             itCol.IndexPrices(5.00); //index 5% all prices 
 
+        }
+
+        private void ButtonCustomersCollection_Clicked(object sender, EventArgs e)
+        {
+            Customer customer1 = new Customer(1, "Dupont", "Jean", true, " ", " ", CustomerType.New);
+            Customer customer2 = new Customer(2, "Dupond", "Jeanne", false, " ", " ", CustomerType.Occasional);
+
+            CustomersCollection custCol = new CustomersCollection();
+
+            custCol.AddCustomer(customer1);
+            custCol.AddCustomer(customer2);
+
+            string s = "";
+            s = $"nombre de clients : {custCol.Count}";
+            s += $"\nPourcentage nouveaux : {custCol.NewCustomersPercentage}";
+            s += $"\nPourcentage occasionels : {custCol.OccasionalCustomersPercentage}";
+            s += $"\nPourcentage réguliers : {custCol.RegularCustomersPercentage}";
+
+
+            lblDebug.Text = s;
+
+            
         }
     }
 

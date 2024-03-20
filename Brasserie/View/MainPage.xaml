@@ -116,6 +116,12 @@
                     Clicked="buttonTestItemsCollection_Clicked"
                     Style="{StaticResource TestButton}"/>
 
+                <Button
+                    x:Name="ButtonCustomersCollection"
+                    Text="CustomerCollection"
+                    Clicked="ButtonCustomersCollection_Clicked"
+                    Style="{StaticResource TestButton}"/>
+
             </HorizontalStackLayout>
 
             <Image
