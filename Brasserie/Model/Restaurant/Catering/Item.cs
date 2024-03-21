@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Brasserie.Model.Restaurant.Catering
 {
     #region Attributs
-    public class Item
+    public abstract class Item
     {
         const int MINCHAR_NAME = 2;
         const int MINCHAR_DESCRIPTION = 10;

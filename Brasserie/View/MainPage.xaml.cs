@@ -5,6 +5,7 @@ using Brasserie.Model.Restaurant.Catering;
 using System.Collections.ObjectModel;
 using Brasserie.Model.Restaurant.Activity;
 using Microsoft.Maui;
+using Microsoft.Maui.Controls.Shapes;
 
 namespace Brasserie.View
 {
@@ -33,26 +34,28 @@ namespace Brasserie.View
 
         private void buttonTestCreateFirstPersons_Clicked(object sender, EventArgs e)
         {
-            Person firstPerson = new Person(id: 1, lastName: "Beumier", firstName: "Damien", gender: true, email: "dambeumier@gmail.com", mobilePhoneNumber: "0489142293");
+            // car classe abstract
+            /*Person firstPerson = new Person(id: 1, lastName: "Beumier", firstName: "Damien", gender: true, email: "dambeumier@gmail.com", mobilePhoneNumber: "0489142293");
             Person secondPerson = new Person(id: 2, lastName: "Deroisin", firstName: "Sophie", gender: false, email: "sophiederoisin@gmail.com", mobilePhoneNumber: "0473121314");
             Person ThirdPerson = new Person(3, "Jandrin", "Marc", true, "jandrinmarc@gmail.com", mobilePhoneNumber: "0485556678");
             Person FourthPerson = new Person(4, "Lupant", "Sebastien");
-            Person FifthPerson = new Person();
+            Person FifthPerson = new Person();*/
             //Person TestPerson = new Person( lastName: "Lupant", firstName: "Sebastien");
 
-            Person p;
+            //Person p;
 
             //p = new Person(6, "Tardif","Jean");
 
             //secondPerson._email = "soderoisin@ecole.be";
- 
+
         }
         private void buttonTestEncapsulation_Clicked(object sender, EventArgs e)
         {
-            Person p = new Person(id: 2, lastName: "Deroisin", firstName: "Sophie", gender: false, email: "sophiederoisin@gmail.com", mobilePhoneNumber: "0473121314");
+            // car classe abstract
+           // Person p = new Person(id: 2, lastName: "Deroisin", firstName: "Sophie", gender: false, email: "sophiederoisin@gmail.com", mobilePhoneNumber: "0473121314");
 
-            p.FirstName = "Marie-Sophie";
-            lblDebug.Text = p.FirstName;
+            //p.FirstName = "Marie-Sophie";
+            //lblDebug.Text = p.FirstName;
 
         }
 
@@ -86,7 +89,8 @@ namespace Brasserie.View
 
         private void buttonTestItem_Clicked(object sender, EventArgs e)
         {
-            Item i = new Item(1,"Fanta", "Boisson gazeuse aux extraits d'orange", 2.5, 6.0, "fanta25.png");
+            // car classe abstract
+            //Item i = new Item(1,"Fanta", "Boisson gazeuse aux extraits d'orange", 2.5, 6.0, "fanta25.png");
         }
 
         private void buttonTestDerivateItems_Clicked(object sender, EventArgs e)
@@ -278,6 +282,51 @@ namespace Brasserie.View
             lblDebug.Text = s;
 
             
+        }
+
+        private void buttonTestReadWriteTextFileWithList_Clicked(object sender, EventArgs e)
+        {
+            string csvFilePath = @"C:\Users\mbouchez\IRAM\2ème\POO\MAUI Projects\Brasserie\Brasserie\Configuration\Datas\Csv\Persons.csv";
+            List<string> personsList = new List<string>();
+            //ObservableCollection<string>();//create empty collection of string
+            personsList = File.ReadAllLines(csvFilePath).ToList(); // copy each line in the collection
+
+            string s = "";
+            foreach (string line in personsList)
+            {
+                s += $"\n{line}";
+            }
+            lblDebug.Text = s; //print collection's content
+                               //Add persons to collection.
+            personsList.Add("Customer;10;Maggi;Toni;true;maggiton@gmail.com;0491609830;Occasional");
+            personsList.Add("Customer;11;Fernez;Jean;true;jeanfernez@gmail.com;0480458801;Regular");
+            //write all lines in a new csv file. 
+            File.WriteAllLines(@"C:\Users\mbouchez\IRAM\2ème\POO\MAUI Projects\Brasserie\Brasserie\Configuration\Datas\Csv\Persons1.csv", personsList);
+
+        }
+
+        private void buttonTestPolymorphism_Clicked(object sender, EventArgs e)
+        {
+            Beer brasseTemps = new Beer(3, name: "Brasse Temps", "", 3.30, "biere.jpg", 21.0, 25, 6.0, false, false);
+            Alcohol al = brasseTemps;
+            Drink d = brasseTemps;
+            Item it = brasseTemps;                        //brasseTemps = it;
+            lblDebug.Text = it.GetType().ToString();            Beer b = (Beer)it;
+
+        }
+
+        private void buttonTestNew_Clicked(object sender, EventArgs e)
+        {
+            StaffMember Lalande = new StaffMember(2, "Lalande", "Vanessa", false, "", "0485667098","BE80 6581 1145 3496", "16, rue de la loi 7080 Nivelles", 4000);            Manager Jenlain = new Manager(3, "Jenlain", "Fabienne", false, "jenfab23@gmail.com","0478901322", "BE80 4394 7739 1234", "13, rue de Mons 6000 Beaumont", 4000, "Password01");
+            lblDebug.Text = $"\nCalcul du salaire depuis une référence de StaffMember pour {Lalande.LastName} : {Lalande.WageCalculation()}";
+            lblDebug.Text = $"\nCalcul du salaire depuis une référence de Manager pour {Jenlain.LastName} : {Jenlain.WageCalculation()}";
+
+            ObservableCollection<StaffMember> staff = new ObservableCollection<StaffMember>();
+            staff.Add(Lalande);
+            staff.Add(Jenlain);
+            staff.ToList().ForEach(s => lblDebug.Text += $"\n Salaire de {s.LastName} de type {s.GetType()}: { s.WageCalculation()}");            staff.ToList().ForEach(s => lblDebug.Text += $"\n {s.GetMainInformations()}");
+
+            lblDebug.Text += $"\n A partir d'une ref de type Manager pour {Jenlain.LastName} cela donne : \n{Jenlain.GetMainInformations()}";
         }
     }
 

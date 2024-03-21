@@ -1,0 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Brasserie.Configuration.Datas.Csv
+{
+    class Persons
+    {
+    }
+}
+Customer;10;Maggi;Toni;true;maggiton@gmail.com;0491609830;Occasional
+Customer;11;Fernez;Jean;true;jeanfernez@gmail.com;0480458801;Regular

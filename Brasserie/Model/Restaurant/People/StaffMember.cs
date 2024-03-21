@@ -6,6 +6,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Brasserie.Model.Restaurant.People
+
+
 {
     /// <summary>
     /// This class concern general staff member employee who receives a salary 
@@ -127,6 +129,24 @@ namespace Brasserie.Model.Restaurant.People
         {
            return trySalary > 0;
         }
+
+        /// <summary>
+        /// For a staff member wage calculation is very simple -> return Salary, 
+        /// </summary>
+        /// <returns></returns>
+        public virtual double WageCalculation()
+        {
+            return Salary;
+        }
+
+        /// <summary>
+        /// get main informations of this staff member
+        /// </summary>
+        public string GetMainInformations()
+        {
+            return $"{FirstName} {LastName} Mobile : {MobilePhoneNumber} Address : {Address}";
+        }
+
 
     }
 }

@@ -121,6 +121,22 @@
                     Text="CustomerCollection"
                     Clicked="ButtonCustomersCollection_Clicked"
                     Style="{StaticResource TestButton}"/>
+                
+                <Button
+                    x:Name="buttonTestReadWriteTextFileWithList"
+                    Text="CSV"
+                    Clicked="buttonTestReadWriteTextFileWithList_Clicked"
+                    Style="{StaticResource TestButton}"/>
+                <Button
+                    x:Name="buttonTestPolymorphism"
+                    Text="Polymorphisme"
+                    Clicked="buttonTestPolymorphism_Clicked"
+                    Style="{StaticResource TestButton}"/>
+                <Button
+                    x:Name="buttonTestNew"
+                    Text="Test New"
+                    Clicked="buttonTestNew_Clicked"
+                    Style="{StaticResource TestButton}"/>
 
             </HorizontalStackLayout>
 

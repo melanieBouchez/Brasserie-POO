@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Brasserie.Model.Restaurant.People
 {
 
-    public class Person
+    public abstract class Person
     {
         private int _id;
         private string _lastName;

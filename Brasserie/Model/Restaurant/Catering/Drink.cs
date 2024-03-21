@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Brasserie.Model.Restaurant.Catering
 {
+
     public class Drink : Item
     {
         const double MIN_VOLUME = 1.0;

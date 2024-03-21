@@ -235,5 +235,23 @@ namespace Brasserie.Model.Restaurant.People
             return BONUS_RATE * Salary; 
         }
 
+        /// <summary>
+        /// for a manager wage is function of a base salary and a bonus
+        /// </summary>
+        public override double WageCalculation()
+        {
+            return Salary + ComputeBonus();
+        }
+
+        /// <summary>
+        /// get main informations of this staff member
+        /// </summary>
+        public new string GetMainInformations()
+        {
+            return $"{FirstName} {LastName} Mobile : {MobilePhoneNumber} Adress : {Address} Login : { Login}";
+        }
+
+
+
     }
 }
